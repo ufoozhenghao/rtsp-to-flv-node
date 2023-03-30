@@ -38,11 +38,12 @@ function rtspToFlvHandle(ws, req) {
     }, {
         browserBufferTimeout: 1000000
     });
-    // const url = req.query.url;
-    const url = new Buffer(req.query.url, 'base64').toString();
+    const url = req.query.url;
+    // const url = new Buffer(req.query.url, 'base64').toString();
     console.log('rtsp url:', url);
     try {
-        ffmpeg(url)
+        // ffmpeg(url)
+        ffmpeg('rtsp://dell.dltdzc.com:554/01')
             .addInputOption(
                 '-rtsp_transport', 'tcp',
                 '-buffer_size', '102400'
